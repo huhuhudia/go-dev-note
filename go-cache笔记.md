@@ -29,3 +29,13 @@ func newCacheWithJanitor(de time.Duration, ci time.Duration, m map[string]Item) 
 
 ```
 
+３．作者在尝试 高并发的情况下shared 这样不用锁全部的map 可能会快一丢丢
+
+但是从ｂｅｎｃｈｍａｒｋ上面看并没有很明显。。。。。
+
+理论上是有用的啦但是两次hash也有多花时间。。。
+
+他第一次sharded时候用的hash 用的djb333据说比标准库快５x, 我感觉第一次hash 就是ｓｈａｒｅｄ的话呢
+
+不需要抗碰撞太好的hash 其实就可以了。。。。S
+
