@@ -1,0 +1,4 @@
+## docker 
+
+docker inspect containername 
+
